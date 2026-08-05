@@ -1,0 +1,267 @@
+/* ==UserStyle==
+@name            Bluesky custom accent color
+@version         1.0.5
+@description     Custom accent colour for Bluesky.
+                 Please choose the hue, saturation and lightness individually.
+
+@author          pkpc99
+@namespace       github.com/pkpc99
+
+@var text   h    "hue"                                       324
+@var text   s    "saturation"                                100%
+@var text   l    "lightness"                                 50%
+@var color muted "muted text color (reposts/likes/date etc)" #6f869f
+==/UserStyle== */
+@-moz-document domain("bsky.app"), domain("main.bsky.dev") {
+
+ :root {
+  --custom-hsl: var(--h), var(--s), var(--l);
+  --custom-light: hsl(var(--h), calc(var(--s) * 2), calc(var(--l) / .75));
+  --custom-lighter: hsl(var(--h), var(--s), calc(var(--l) / .53));
+  --custom-hued: hsl(calc(var(--h) + -20), var(--s), calc(var(--l) / .85)); }
+
+ [aria-label*="Bluesky"] svg path,
+  #splash svg path,
+ [fill="#0085ff"],
+ [fill="#4D97FF"]{
+  fill: hsl(var(--custom-hsl))!important;}
+ 
+ [role="progressbar"] svg circle,
+ [stroke*="hsl(211, 9"] {
+  stroke: hsl(var(--custom-hsl))!important;} 
+ 
+ /* Muted/grey text */
+ [style*="color: rgb(111, 134, 159)"],
+ [style*="color: rgb(120, 142, 165)"],
+ [style*="color: rgb(140, 158, 178)"],
+ [style*="color: rgb(174, 187, 201)"],
+ a[href^="/profile/"][data-no-underline="1"],
+ [aria-label*="at"] {
+ color: var(--muted)!important;
+ fill: var(--muted)!important;
+ }
+ 
+ svg[width="20"] > *:not([fill="#ec4899"], [fill="hsl(211, 20%, 100%)"]):not([d*="1 1-1Z"]),
+ svg[height="18"] > *:not([fill="#ec4899"]),
+ [d*=" 2.293a1 1 0 1 0-1.414 1.414L17.836 5H6a3"] {
+ color: var(--muted)!important;
+ fill: var(--muted)!important;
+ }
+ 
+ 
+ /* Fixes a coloring error with the svg muted color */
+ [aria-label="Moderation settings"] svg[height="18"] path,
+ [aria-label="My saved feeds"] svg[height="18"] path,
+ svg[fill="none"][class="r-1kihuf0 r-1pcdyqj"] path {
+  fill: none!important;
+  color: currentColor!important; }
+ 
+ [aria-label="Thread preferences"] svg[height="18"] path,
+ [fill="#fba2b2"]{
+  fill: currentColor!important;
+  color: currentColor!important; }
+ 
+ /* Changes the Deactivate and Delete account buttons back to normal */
+ /* You can remove this if you want                                  */
+ button[aria-label="Deactivate account"] path[fill="#fba2b2"],
+ button[aria-label="Delete account"] path[fill="#fba2b2"]{
+ fill: #fba2b2!important
+} 
+
+
+ /*Links*/
+ [role="link"][style*="color: rgb(1"]{
+  color:hsl(var(--custom-hsl))!important
+ }
+ 
+ /* hashtags when writing post */
+ .ProseMirror .autolink, .ProseMirror .mention, .ProseMirror a {
+  color:hsl(var(--custom-hsl))!important
+}
+ 
+ [style*="color: rgb(32,"][style*="139,"][style*="254)"]:not([class="css-146c3p1"]), /*Dim text color*/
+ [style*="color: rgb(16, 131, 254)"]{ /*Dark text color*/
+  color: hsl(var(--custom-hsl))!important;
+  text-decoration-color: hsl(var(--custom-hsl))!important;
+  border-color: hsl(var(--custom-hsl))!important;
+ }
+ 
+ [style*="color: rgb(52, 150, 254)"],
+ [style*="color: rgb(15,"], [style*="color: rgb(77,"]{
+   color: hsl(var(--custom-hsl))!important;
+ }
+ 
+ [style*="background-color: rgb(52, 150, 254)"]{
+   background-color: hsl(var(--custom-hsl))!important;
+   filter: brightness(1.2)  
+ }
+ 
+ /* button backgrounds */
+[style*="width: 28px; height: 28px;"][style*="background-color: rgb(16, 131, 254);"],
+[style*="width: 60px; height: 60px;"][style*="background-color: rgb(16, 131, 254);"],
+[role="button"][style*="background-color: rgb(16, 131, 254);"] {
+  background-color: hsl(var(--custom-hsl))!important;
+ }
+ 
+ button[style*="rgb(0, 133, 255)"]{
+   background-color: hsl(var(--custom-hsl))!important;
+ }
+ 
+[role="button"][style*="background-color: rgb(1, 104, 213);"]{
+  background-color: hsl(var(--h), calc(var(--s) / 1.2), calc(var(--l) / 1.2))!important; 
+ }
+
+ /* Follow button */
+ button[aria-label="Follow"][aria-pressed="false"]:not(button[style*="background-color: rgb(255, 255, 255)"]) {
+  background-color: hsl(var(--custom-hsl))!important;
+ }
+ 
+ button > *[style*="color: rgb(76, 162, 254);"]{
+  color: hsl(var(--custom-hsl))!important;
+ }
+ 
+ [style*="background-color: rgb(76, 162, 254);"]{
+ background-color: var(--custom-light)!important; 
+ }
+ 
+ [style*="rgb(10, 95, 186)"]{
+ background-color: hsla(var(--h), var(--s), calc(var(--l) / 1), .3)!important; 
+ }
+ 
+ /* Button hover*/
+ button[aria-pressed="false"][style*="52, 150, 254"],
+ button[aria-pressed="false"][style*="77,"]{
+ background-color: hsl(var(--custom-hsl))!important;
+ filter: brightness(1.2)
+ }
+
+ /* Create new post button & create new message button */
+ button[aria-label="New post"] > *:not([dir="auto"]),
+ button[aria-label="New chat"] > *:not([dir="auto"]) {
+  background-image: linear-gradient(135deg, var(--custom-hued), hsl(var(--custom-hsl)))!important;
+  background-color: hsl(var(--custom-hsl))!important;
+ }
+
+ /* Fallbacks */
+ [data-testid="userAvatarFallback"] path[d*="30.2091 0 28 0Z"],
+ div[class="css-175oi2r"] > svg[viewBox="0 0 64 57"] > path,
+ [data-testid="userAvatarFallback"] circle[fill="#0070ff"],
+ [data-testid="userAvatarFallback"] rect  {
+  fill: hsl(var(--custom-hsl));
+ }
+ [data-testid="userBannerFallback"]{
+  background-color: hsl(var(--custom-hsl));
+ }
+ 
+ /* GIF play button, buttons in Settings  */
+ [style*="background-color: rgb(32, 139, 254);"]{
+  background-color: hsl(var(--custom-hsl))!important;
+ }
+
+ /* Notification indicator, New Posts indicator (Jump to top) */
+ a[href^="/notifications"] > * > div[dir="auto"],
+ .r-wzwllv {
+  background-color: hsl(var(--custom-hsl))!important;
+  color:white!important;
+ }
+
+ /* SVG pin in the feed settings also something else idk*/
+ path[fill^="hsl(211, 99%"],
+ svg path[d*="14.3-32-32V384z"],
+ svg path[fill="#0F73FF"]{
+  fill: hsl(var(--custom-hsl))!important;
+ }
+ 
+ /* Unsent message opacity */
+ [style*="14, 73, 137"],
+ [style*="1, 64, 132"]{
+ background-color: hsla(var(--custom-hsl), .5)!important;
+ }
+ 
+ /* Lower opacity elements */
+ [style*="background-color: rgb(21, 41, 63)"],
+ [style*="background-color: rgb(21, 52, 85)"],
+ [style*="border-color: rgb(16, 131, 254)"],
+ [data-testid="haveCodeButton"][style*="rgb(0, 44, 91)"],
+  [aria-pressed="false"][role="button"][style*="rgb(18, 41, 73)"],
+ [style*="height: 52px; background-color: rgb(18, 41, 73);"]{
+  background-color: hsla(var(--custom-hsl), .3)!important;
+  border-color: hsla(var(--custom-hsl), .5)!important;
+ }
+ 
+ [style*="border-radius: 99"][style*="background-color: rgb(16, 131, 254)"],
+ [style*="border-radius: 17"][style*="background-color: rgb(16, 131, 254)"],
+ [style*="border-radius: 99"][style*="width: 14px"] {
+ background-color: hsla(var(--custom-hsl))!important;
+ }
+ 
+ [style*="background-color: rgb(19, 63, 109)"],
+ [style*="border-color: rgb(52, 150, 254)"]{
+  background-color: hsla(var(--custom-hsl), .4)!important;
+  border-color: hsla(var(--custom-hsl), .7)!important;
+ }
+ 
+ /* Lower opacity elements - Light mode specific */
+ [style*="rgb(204, 229, 255)"],
+ [style*="rgb(230, 242, 255)"] {
+ background-color: var(--custom-lighter)!important;
+ border-color: hsla(var(--custom-hsl), .7)!important;
+ }
+ 
+ [style*="border-color: rgb(169, 183, 197)"],
+ [style*="border-color: rgb(111, 134, 159)"]{
+   border-color: var(--custom-light)!important;
+ }
+ 
+ /* Lower opacity elements - Dark mode specific */
+ [style*="background-color: rgb(0, 25, 51)"],
+ [style*="background-color: rgb(18, 52, 100)"],
+ [style*="background-color: rgb(0, 44, 91)"]{
+  background-color: hsla(var(--custom-hsl), .2)!important;
+ }
+
+ button[aria-disabled="true"][style*="background"]:not([aria-label*="Start chat with"], [aria-label="Save changes"]){
+ background-color: hsl(var(--h), calc(var(--s) / 1.2), calc(var(--l) / 1.2))!important; }
+ 
+ /* Darker disabled buttons */
+  button[aria-disabled="true"] svg[style*="rgb(91, 119, 149)"] path{
+ fill: hsl(var(--h), calc(var(--s) / 3), calc(var(--l) / 2))!important; }
+ 
+ 
+ /* Gradient */
+ div[class="css-175oi2r"][style$="rgb(89, 185, 255));"] {
+  background-image: linear-gradient(to bottom, hsl(var(--custom-hsl)), var(--custom-light))!important;
+ }
+ 
+ [style^="background-image: linear-gradient(9"],
+ [aria-label="Complete onboarding and start using your account"] * *,
+ [aria-label="Continue to next step"] * * {
+  background-image: linear-gradient(95deg, var(--custom-hued), hsl(var(--custom-hsl)))!important;
+ }
+ 
+ /* SVG gradient stops */
+ defs [stop-color="#0A7AFF"] {
+ stop-color: hsl(var(--custom-hsl)); }
+ defs [stop-color="#59B9FF"]{
+ stop-color: var(--custom-light); }
+
+ 
+ /* Checkbox labels */
+ div[class*="r-1ow6zhx"],
+ [style*="background-color: rgb(15, 115, 255)"]{
+  background-color: hsl(var(--custom-hsl))!important;
+ }
+ 
+ [style*="border-color: rgb(15, 115, 255)"]{
+  border-color:hsl(var(--custom-hsl))!important;
+ }
+ 
+ [style*="height: 12px; width: 12px; background-color: rgb(32, 139, 254);"],
+ [class*="r-1janqcz"][style*="background-color: rgb(0, 133, 255)"] {
+    background-color: hsl(var(--custom-hsl))!important;
+ }
+
+ [aria-label="Create a starter pack"] [class="css-146c3p1"] {
+  color: var(--custom-light)!important;
+ }
+}
