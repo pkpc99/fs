@@ -1,0 +1,66 @@
+/* ==UserStyle==
+@name           barelyhuman.dev blue mode
+@namespace      pkpc99.github.io
+@version        1.0.0
+@description    Blue theme for Mark mardown editor.
+@author         pkpc99
+==/UserStyle== */
+
+@-moz-document domain("mark.barelyhuman.dev") {
+ @import url('https://fonts.upset.dev/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap');
+ :root {
+  --base: #dae7e9;
+  --overlay: #b3babc;
+  --surface: #c5d3e5;
+  --text: #141e26;
+  --subtle: #1e5067;
+ }
+
+ a {
+  color: color-mix(var(--surface) 40%, var(--subtle) 90%);
+  font-weight: 500;
+  text-decoration: none;
+ }
+
+ h1,
+ h2 {
+  color: color-mix(var(--text) 40%, var(--subtle) 60%)
+ }
+
+ h3 {
+  color: color-mix(var(--overlay) 40%, var(--subtle) 60%)
+ }
+ .tab-title[data-v-68e4d7ec],
+ .tab-title-input[data-v-68e4d7ec],
+ .sidebar-title[data-v-68e4d7ec],
+ svg[data-v-68e4d7ec] {
+  color: var(--overlay);
+ }
+
+ .sidebar[data-v-68e4d7ec] {
+  background: #4c566a;
+  border-right: #4c566a;
+ }
+
+ .ql-code-block {
+  font-family: monospace, lucida sans;
+ }
+
+ .code-editor {
+  font-family: Instrument Sans, sans-serif;
+ }
+
+ ql-bubble .ql-tooltip,
+ .ql-bubble .ql-stroke {
+  color: var(--subtle);
+  stroke: var(--subtle);
+ }
+ .ql-bubble .ql-fill,
+ .ql-bubble .ql-stroke.ql-fill {
+  fill: var(--subtle);
+ }
+
+ .ql-bubble .ql-tooltip:not(.ql-flip) .ql-tooltip-arrow {
+  border-bottom: 6px solid var(--overlay);
+ }
+}
