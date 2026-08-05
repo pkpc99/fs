@@ -1,0 +1,125 @@
+/* ==UserStyle==
+@name           status.cafe catppuccin mocha
+@namespace      pkpc99.github.io
+@version        1.1
+@description    Status.cafe theme using Catppuccin's Mocha color scheme. This is my first catppuccin theme. My apologies if the colors are off.
+@author         pkpc99
+==/UserStyle== */
+@-moz-document url("status.cafe"), url("https://status.cafe/settings"), url-prefix("https://status.cafe/about"), url("https://status.cafe/current-status") {
+
+ body {
+  background: #1e1e2e;
+  color: #cdd6f4;
+ }
+ 
+ #statuscafe{
+  background: #181825;
+  padding:1ch;
+  border-radius:1ch;
+  border:none;
+ }
+ 
+  textarea{
+  background:#11111b;
+  border:none;
+  color:#a6adc8;
+  border-radius:1ch;
+  padding:1ch;
+  min-height:100px;
+ }
+ 
+ input{
+  background:#9399b2;
+  border:none;
+  border-radius:.5ch;
+  
+ }
+ 
+textarea::-webkit-scrollbar {
+width: 10px;
+ background: transparent;
+
+}
+
+textarea::-webkit-scrollbar-track {
+background: transparent;
+}
+
+ a:visited {
+  color: #eba0ac;
+ }
+
+ a {
+  color: #74c7ec;
+  text-decoration: none;
+ }
+
+ .status-username {
+  color: #585b70;
+ }
+
+ .flash {
+  display:none;
+  background-color: #a6e3a1;
+ }
+
+ .flash a {
+  color: #1e1e2e;
+ }
+}
+
+@-moz-document domain("forum.status.cafe") {
+ 
+  body {
+  background: #1e1e2e;
+  color: #cdd6f4;
+ }
+ 
+ a:visited {
+  color: #eba0ac;
+ }
+
+ a {
+  color: #74c7ec;
+  text-decoration: none;
+ }
+
+ .status-username {
+  color: #585b70;
+ }
+ nav.breadcrumb {
+  border: 1px solid #313244
+ }
+
+ table * {
+  border-color: #11111b
+ }
+
+ tbody,
+ .forum {
+  background: #11111b
+ }
+
+ thead {
+  background: #45475a;
+ }
+
+ .topic > tbody > tr:nth-child(2n) {
+  background-color: #181825;
+ }
+
+ hr {
+  background-color: #313244;
+  height: 1px;
+  border: none;
+ }
+
+ .signature {
+  border-top: 1px solid #313244
+ }
+ 
+  .posted {
+  color: #585b70;
+ }
+
+}
