@@ -1,0 +1,39 @@
+/* ==UserStyle==
+@name           barelyhuman.dev sepia mode
+@namespace      pkpc99.github.io
+@version        1.0.0
+@description    Sepia theme for Mark markdown editor
+@author         pkpc99
+==/UserStyle== */
+@-moz-document domain("mark.barelyhuman.dev") {
+ :root {
+  --base: #f2ebd9;
+  --overlay: #daceb4;
+  --surface: #daceb4;
+  --text: #2c1a16;
+  --subtle: #4c3d2c;
+ }
+
+html *:hover{
+  color: var(--subtle);
+ }
+
+ 
+ ql-bubble .ql-tooltip,
+ .ql-bubble .ql-stroke {
+  color: var(--subtle);
+  stroke: var(--subtle);
+ }
+ .ql-bubble .ql-fill,
+ .ql-bubble .ql-stroke.ql-fill {
+  fill: #4c3d2c;
+ }
+
+ .code-editor {
+    font-family: verdana, Cambria, serif;
+}
+
+ .ql-bubble .ql-tooltip:not(.ql-flip) .ql-tooltip-arrow {
+    border-bottom: 6px solid var(--overlay);}
+
+}
