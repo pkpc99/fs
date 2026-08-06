@@ -1,49 +1,51 @@
 /* ==UserStyle==
 @name           status.cafe catppuccin mocha
 @namespace      pkpc99.github.io
-@version        1.1
-@description    Status.cafe theme using Catppuccin's Mocha color scheme. This is my first catppuccin theme. My apologies if the colors are off.
+@version        1.2
+@description    Status.cafe theme using Catppuccin's Mocha color scheme. This is my first catppuccin theme. My apologies if the colors are off. This userstyle may break the text color some profiles.
 @author         pkpc99
 ==/UserStyle== */
-@-moz-document url("status.cafe"), url("https://status.cafe/settings"), url-prefix("https://status.cafe/about"), url("https://status.cafe/current-status") {
+@-moz-document url("https://status.cafe"),
+url("https://status.cafe/"),
+url("https://status.cafe/settings"),
+url-prefix("https://status.cafe/about"),
+url-prefix("https://status.cafe/current-status") {
 
  body {
   background: #1e1e2e;
   color: #cdd6f4;
  }
- 
- #statuscafe{
+
+ .status {
   background: #181825;
-  padding:1ch;
-  border-radius:1ch;
-  border:none;
+  padding: 1ch;
+  border-radius: 1ch;
+  border: none;
  }
- 
-  textarea{
-  background:#11111b;
-  border:none;
-  color:#a6adc8;
-  border-radius:1ch;
-  padding:1ch;
-  min-height:100px;
- }
- 
- input{
-  background:#9399b2;
-  border:none;
-  border-radius:.5ch;
-  
- }
- 
-textarea::-webkit-scrollbar {
-width: 10px;
- background: transparent;
 
-}
+ textarea {
+  background: #11111b;
+  border: none;
+  color: #a6adc8;
+  border-radius: 1ch;
+  padding: 1ch;
+  min-height: 100px;
+ }
 
-textarea::-webkit-scrollbar-track {
-background: transparent;
-}
+ input {
+  background: #9399b2;
+  border: none;
+  border-radius: .5ch;
+ }
+
+ textarea::-webkit-scrollbar {
+  width: 10px;
+  background: transparent;
+ }
+
+ textarea::-webkit-scrollbar-track {
+  background: transparent;
+ }
 
  a:visited {
   color: #eba0ac;
@@ -59,7 +61,7 @@ background: transparent;
  }
 
  .flash {
-  display:none;
+  display: none;
   background-color: #a6e3a1;
  }
 
@@ -69,12 +71,12 @@ background: transparent;
 }
 
 @-moz-document domain("forum.status.cafe") {
- 
-  body {
+
+ body {
   background: #1e1e2e;
   color: #cdd6f4;
  }
- 
+
  a:visited {
   color: #eba0ac;
  }
@@ -87,6 +89,7 @@ background: transparent;
  .status-username {
   color: #585b70;
  }
+
  nav.breadcrumb {
   border: 1px solid #313244
  }
@@ -117,9 +120,40 @@ background: transparent;
  .signature {
   border-top: 1px solid #313244
  }
- 
-  .posted {
+
+ .posted {
+  color: #585b70;
+ }
+}
+
+@-moz-document url-prefix("https://status.cafe") {
+ /* Unstyled profiles */
+ html :has(dt[class="about"]):not(:has(style)) {
+  background: #1e1e2e;
+  color: #cdd6f4;
+ }
+
+ html :not(:has(style)) a {
+  color: #74c7ec;
+ }
+
+ html :has(style) a {
+  color: inherit;
+ }
+
+ html :not(:has(style)) a:visited {
+  color: #eba0ac;
+ }
+
+ html :has(style) a:visited {
+  color: inherit;
+ }
+
+ html :not(:has(style)) .status-username {
   color: #585b70;
  }
 
+ html :has(style) .status-username {
+  color: inherit;
+ }
 }
