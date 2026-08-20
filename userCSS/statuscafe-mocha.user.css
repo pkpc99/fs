@@ -1,8 +1,8 @@
 /* ==UserStyle==
 @name           status.cafe catppuccin mocha
 @namespace      pkpc99.github.io
-@version        1.3
-@description    Status.cafe theme using Catppuccin's Mocha color scheme. This is my first catppuccin theme. My apologies if the colors are off. This userstyle may break the text color some profiles.
+@version        1.21
+@description    Status.cafe styled with Catppuccin's Mocha color scheme. Applies to all pages except user profiles with custom CSS.
 @author         pkpc99
 ==/UserStyle== */
 @-moz-document url("https://status.cafe"),
@@ -139,13 +139,12 @@ url-prefix("https://status.cafe/current-status") {
   border-radius: 1ch;
   border: none;
  }
- 
- html :not(:has(style)) a {
-  color: #74c7ec;
- }
 
+ a{
+  color:#74c7ec;
+ }
  html :has(style) a {
-  color: inherit;
+  color: revert-rule;
  }
 
  html :not(:has(style)) a:visited {
