@@ -37,7 +37,41 @@ url-prefix("https://status.cafe/current-status") {
   border: none;
   border-radius: .5ch;
  }
+/* emoji radio and label start */
+ 
+  details *>* {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    }
+ summary {margin-block: 1ch;}
+ 
+ input[type="radio"]{
+  appearance:none;
+  outline:none;
+ }
 
+.radio {
+    display: inline-block;
+    margin: -1px;
+}
+
+.radio input[type="radio"] + label {
+    width: 2.6ch;
+    margin-top: -.3ch;
+    border-radius: 100%;
+    display: inline-block;
+    padding-block: .2lh;
+    text-align: center;
+}
+ 
+  input[type="radio"]:checked + label {
+    background-color: #a6e3a166;
+}
+
+ 
+/* emoji radio and label end */
  textarea::-webkit-scrollbar {
   width: 10px;
   background: transparent;
