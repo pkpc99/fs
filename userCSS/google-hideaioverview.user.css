@@ -1,22 +1,15 @@
 /* ==UserStyle==
 @name           Hide AI Overview
 @namespace      https://pkpc99.github.io
-@version        3.41
+@version        3.4
 @description    Hides Google's AI Overview.
 @author         pkpc99
 ==/UserStyle== */
 @-moz-document regexp("https?://www.google.(com|([a-z]{2}))(.[a-z]{2})?.*") {
 
- [data-mcpr]:has([data-al*="AI overview"]),
- [data-mcpr] :has([aria-label*="verview"]),
- #rso div[style="margin-bottom:30px"]:has([data-al*="AI overview"], [aria-label*="Generative AI"]),
- div[class*=Kevs]:has([data-mcp="18"], [data-al*="AI overview"]) {
+ div[class="bzXtMb M8OgIe dRpWwb"],
+ div[class*=Kevs] :has([aria-label*="Overview"]),
+ div[style*="margin-bottom:30px"] :has([aria-label*="Overview"]),
+ #rso div[style="margin-bottom:30px"]:has([data-al*="AI overview"], [aria-label*="Generative AI"]){
   display: none
  }
-
- div[style="width:575px"] block-component:has(.xpdopen) {
-  display: block!important;
-  visibility: visible;
-  padding: 20px 0;
- }
-}
